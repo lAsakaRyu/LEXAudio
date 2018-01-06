@@ -10,5 +10,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:checked="false"
+        android:paddingRight="16dp"
         android:text="On/Off" />
 </RelativeLayout>
