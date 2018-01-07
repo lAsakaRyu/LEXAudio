@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context="com.audio.yametech.lexaudio.VolumeLevelerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/textViewSleepDuration"
@@ -14,7 +13,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Sleep Duration"
+        android:text="@string/sleep_duration"
         app:layout_constraintBottom_toTopOf="@+id/seekBarSleepDuration"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewVolumeLeveler" />
@@ -26,7 +25,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Sleep Interval"
+        android:text="@string/sleep_interval"
         app:layout_constraintBottom_toTopOf="@+id/seekBarSleepInterval"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBarSleepDuration" />
@@ -38,7 +37,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Activation Threshold"
+        android:text="@string/activation_threshold"
         app:layout_constraintBottom_toTopOf="@+id/seekBarThreshold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBarSleepInterval" />
@@ -49,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:layout_marginRight="16dp"
-        android:text="Not in Range"
+        android:text="@string/not_in_range"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/seekBarSleepDuration"
         app:layout_constraintRight_toRightOf="parent" />
@@ -60,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:layout_marginRight="16dp"
-        android:text="Not in Range"
+        android:text="@string/not_in_range"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/seekBarSleepInterval"
         app:layout_constraintRight_toRightOf="parent" />
@@ -69,12 +68,12 @@
         android:id="@+id/textViewCurrentThreshold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:text="Not in Range"
-        android:textSize="12sp"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarThreshold" />
+        android:layout_marginRight="16dp"
+        android:text="@string/not_in_range"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarThreshold"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/textViewVolumeLeveler"
@@ -83,7 +82,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="16dp"
-        android:text="Volume Leveler"
+        android:text="@string/volume_leveler"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -95,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="24dp"
         android:layout_marginTop="16dp"
-        android:text="On/Off"
+        android:text="@string/on_off"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -11,5 +11,5 @@
         android:layout_centerVertical="true"
         android:checked="false"
         android:paddingRight="16dp"
-        android:text="On/Off" />
+        android:text="@string/on_off" />
 </RelativeLayout>

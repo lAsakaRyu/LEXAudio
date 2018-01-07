@@ -4,7 +4,7 @@
 
     <item
         android:orderInCategory="106"
-        android:title="Tools">
+        android:title="@string/tools">
         <menu>
             <item
                 android:id="@+id/action_settings"
@@ -17,19 +17,19 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home" />
+            android:title="@string/home" />
         <item
             android:id="@+id/nav_convolver"
             android:icon="@drawable/ic_functions_black_24dp"
-            android:title="Colvolver" />
+            android:title="@string/convolver" />
         <item
-            android:id="@+id/nav_nc"
+            android:id="@+id/nav_as"
             android:icon="@drawable/ic_leak_remove_black_24dp"
-            android:title="Active Noise Cancellation" />
+            android:title="@string/adaptive_sound" />
         <item
             android:id="@+id/nav_al"
             android:icon="@drawable/ic_volume_up_black_24dp"
-            android:title="Volume Leveler" />
+            android:title="@string/volume_leveler" />
     </group>
 
 </menu>

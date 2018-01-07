@@ -6,7 +6,6 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_convolver_settings">Settings</string>
     <string name="title_activity_settings">Settings</string>
@@ -18,5 +17,25 @@
 
     <string name="pref_title_display_name">Display name</string>
     <string name="pref_default_display_name">User</string>
+    <string name="adapt_interval">Adapt Interval</string>
+    <string name="adaptive_sound">Adaptive Sound</string>
+    <string name="maximum_boost">Maximum Boost</string>
+    <string name="not_in_range">Not in Range</string>
+    <string name="room_level">Room Level</string>
+    <string name="convolver">Convolver</string>
+    <string name="ddefault">Default</string>
+    <string name="decay_time">Decay Time</string>
+    <string name="hf_room_level">HF Room Level</string>
+    <string name="on_off">On/Off</string>
+    <string name="reflection_level">Reflection Level</string>
+    <string name="reverb_level">Reverb Level</string>
+    <string name="volume_leveler">Volume Leveler</string>
+    <string name="effect">Effect</string>
+    <string name="status">Status</string>
+    <string name="activation_threshold">Activation Threshold</string>
+    <string name="sleep_duration">Sleep Duration</string>
+    <string name="sleep_interval">Sleep Interval</string>
+    <string name="home">Home</string>
+    <string name="tools">Tools</string>
 
 </resources>

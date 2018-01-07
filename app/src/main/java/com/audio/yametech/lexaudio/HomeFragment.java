@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,7 +24,11 @@ public class HomeFragment extends Fragment {
     private VisualizerView mVisualizerView;
     private View view;
     private TextView textViewWelcome;
+    private ImageView imageView1;
+    private ImageView imageView2;
+    private ImageView imageView3;
     private SharedPreferences preferences;
+
     private static final float VISUALIZER_HEIGHT_DIP = 100f;
     public HomeFragment() {
         // Required empty public constructor
@@ -38,6 +43,9 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         setupVisualizerFxAndUI();
         mVisualizer.setEnabled(true);
+        imageView1 = view.findViewById(R.id.imageView1);
+        imageView2 = view.findViewById(R.id.imageView2);
+        imageView3 = view.findViewById(R.id.imageView3);
         textViewWelcome = view.findViewById(R.id.textViewWelcome);
         return view;
     }
@@ -48,19 +56,31 @@ public class HomeFragment extends Fragment {
         if(!mVisualizer.getEnabled())
             mVisualizer.setEnabled(true);
         textViewWelcome.setText("Welcome, "+preferences.getString("setting_name","User"));
+        if(preferences.getBoolean("ConvolverSwitch",false))
+            imageView1.setImageResource(R.drawable.ic_brightness_1_on_24dp);
+        else
+            imageView1.setImageResource(R.drawable.ic_brightness_1_off_24dp);
+        if(preferences.getBoolean("ASSwitch",false))
+            imageView2.setImageResource(R.drawable.ic_brightness_1_on_24dp);
+        else
+            imageView2.setImageResource(R.drawable.ic_brightness_1_off_24dp);
+        if(preferences.getBoolean("VLSwitch",false))
+            imageView3.setImageResource(R.drawable.ic_brightness_1_on_24dp);
+        else
+            imageView3.setImageResource(R.drawable.ic_brightness_1_off_24dp);
     }
 
     private void setupVisualizerFxAndUI() {
 
         mLinearLayout = view.findViewById(R.id.linearLayoutVisual);
-        // Create a VisualizerView to display the audio waveform for the current settings
+
         mVisualizerView = new VisualizerView(view.getContext());
         mVisualizerView.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 (int) (VISUALIZER_HEIGHT_DIP * getResources().getDisplayMetrics().density)));
         mLinearLayout.addView(mVisualizerView);
 
-        // Create the Visualizer object and attach it to our media player.
+
         mVisualizer = new Visualizer(0);
         mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
 

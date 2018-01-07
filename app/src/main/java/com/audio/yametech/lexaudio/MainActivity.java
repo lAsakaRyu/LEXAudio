@@ -136,8 +136,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Fragment fragment = new ConvolverFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content,fragment).commit();
-        } else if (id == R.id.nav_nc) {
-
+        } else if (id == R.id.nav_as) {
+            Fragment fragment = new AdaptiveSoundFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content,fragment).commit();
         } else if (id == R.id.nav_al) {
             Fragment fragment = new VolumeLevelerFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();

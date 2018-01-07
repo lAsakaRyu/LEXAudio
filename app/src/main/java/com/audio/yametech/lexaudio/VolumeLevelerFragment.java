@@ -67,7 +67,7 @@ public class VolumeLevelerFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 editor.putInt("SleepDuration",1+seekBar.getProgress());
-                Log.i("LEXConvolver","Sleep Duration = "+progress);
+                Log.i("LEXVLeveler","Sleep Duration = "+progress);
                 editor.apply();
                 textViewCurrentSleepDuration.setText(Integer.toString(preferences.getInt("SleepDuration",5)));
             }
@@ -88,7 +88,7 @@ public class VolumeLevelerFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 editor.putInt("SleepInterval",1+seekBar.getProgress());
-                Log.i("LEXConvolver","Sleep Interval = "+progress);
+                Log.i("LEXVLeveler","Sleep Interval = "+progress);
                 editor.apply();
                 textViewCurrentSleepInterval.setText(Integer.toString(preferences.getInt("SleepInterval",5)));
             }
@@ -109,7 +109,7 @@ public class VolumeLevelerFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 editor.putInt("Threshold",10000+(int)(((double)seekBar.getProgress()/100)*22767));
-                Log.i("LEXConvolver","Activation Threshold = "+progress);
+                Log.i("LEXVLeveler","Activation Threshold = "+progress);
                 editor.apply();
                 textViewCurrentThreshold.setText(Integer.toString(preferences.getInt("Threshold",20000)));
             }
