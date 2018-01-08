@@ -40,9 +40,11 @@ public class LEXService extends Service {
     private Thread mAS;
     private boolean effectVL;
     private boolean effectAS;
+    private int control = 0;
     private short THRESHOLD;
     private int sampleRate = 44100;
     private int minSize = 1024;
+    short[] lin = new short[minSize];
 
     private final BroadcastReceiver mAudioSessionReceiver = new BroadcastReceiver() {
         @Override
@@ -219,6 +221,8 @@ public class LEXService extends Service {
     private void effectVLOFF() {
         mVL = null;
         effectVL = false;
+        mRecord.stop();
+        control=0;
     }
 
     private void effectASON() {
@@ -239,6 +243,8 @@ public class LEXService extends Service {
         if (mEqualizer != null)
             mEqualizer.release();
         mEqualizer = null;
+        mRecord.stop();
+        control=0;
     }
 
     @Override
@@ -280,13 +286,16 @@ public class LEXService extends Service {
     }
 
     private void effectVLModule() {
-        short[] lin = new short[minSize];
+
         int num;
         int count = 0;
-        if (mRecord.getRecordingState() != AudioRecord.RECORDSTATE_RECORDING)
-            mRecord.startRecording();
         while (effectVL) {
-            num = mRecord.read(lin, 0, minSize);
+            if (mRecord.getRecordingState() != AudioRecord.RECORDSTATE_RECORDING)
+                mRecord.startRecording();
+            if(control==0||control==1) {
+                num = mRecord.read(lin, 0, minSize);
+                control = 1;
+            }
             for (int a = 0; a < minSize; a++) {
                 if (lin[a] > THRESHOLD) {
                     count++;
@@ -297,19 +306,19 @@ public class LEXService extends Service {
                 int oldVolume = AM.getStreamVolume(AudioManager.STREAM_MUSIC);
                 AM.setStreamVolume(AudioManager.STREAM_MUSIC, oldVolume / 2, 0);
                 try {
-                    Thread.sleep(preferences.getInt("SleepDuration", 5) * 1000);
+                    mVL.sleep(preferences.getInt("SleepDuration", 5) * 1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 AM.setStreamVolume(AudioManager.STREAM_MUSIC, (int) (oldVolume * 0.8), 0);
                 try {
-                    Thread.sleep(1500);
+                    mVL.sleep(1500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 AM.setStreamVolume(AudioManager.STREAM_MUSIC, oldVolume, 0);
                 try {
-                    Thread.sleep(preferences.getInt("SleepInterval", 5) * 1000);
+                    mVL.sleep(preferences.getInt("SleepInterval", 5) * 1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -320,7 +329,6 @@ public class LEXService extends Service {
     }
 
     private void effectASModule() {
-        short[] lin = new short[minSize];
         mEqualizer = new Equalizer(0, sessionId);
         if (!preferences.getBoolean("ConvolverSwitch", false))
             mEqualizer.setEnabled(true);
@@ -329,10 +337,13 @@ public class LEXService extends Service {
         int count = 0;
         short prevband = -1;
         int max_amplitude;
-        if (mRecord.getRecordingState() != AudioRecord.RECORDSTATE_RECORDING)
-            mRecord.startRecording();
         while (effectAS) {
-            num = mRecord.read(lin, 0, minSize);
+            if (mRecord.getRecordingState() != AudioRecord.RECORDSTATE_RECORDING)
+                mRecord.startRecording();
+            if(control==0||control==2) {
+                num = mRecord.read(lin, 0, minSize);
+                control = 2;
+            }
             max_amplitude = 0;
             for (int a = 0; a < minSize; a++) {
                 if (lin[a] > max_amplitude) {
@@ -358,7 +369,7 @@ public class LEXService extends Service {
                         mEqualizer.setEnabled(true);
                     Log.i("DATA", mEqualizer.getProperties().toString());
                     try {
-                        Thread.sleep(preferences.getInt("AdaptInterval", 1) * 1000);
+                        mAS.sleep(preferences.getInt("AdaptInterval", 1) * 1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
