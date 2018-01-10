@@ -29,16 +29,16 @@
             android:exported="true" />
 
         <activity
-            android:name=".ConvolverSettingsActivity"
-            android:label="@string/title_activity_convolver_settings"
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.audio.yametech.lexaudio.MainActivity" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:name=".AboutActivity"
+            android:label="@string/about"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

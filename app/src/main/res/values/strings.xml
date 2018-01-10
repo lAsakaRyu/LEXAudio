@@ -37,5 +37,11 @@
     <string name="sleep_interval">Sleep Interval</string>
     <string name="home">Home</string>
     <string name="tools">Tools</string>
+    <string name="about">About</string>
+    <string name="yametech_cooperation">Yametech Cooperation</string>
+    <string name="dev1">-Chew Hoo Wing - chewhw-wa15@student.tarc.edu.my</string>
+    <string name="dev2">-Chia Wee Hang - chiawh-wa15@student.tarc.edu.my</string>
+    <string name="brought_you_by">Brought you by</string>
+    <string name="developed_by">Developed by</string>
 
 </resources>
